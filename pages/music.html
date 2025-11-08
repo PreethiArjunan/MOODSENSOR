@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MoodSense — Music</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body { margin:0;font-family:Poppins;background:#0d0b18;color:#fff; }
+.music-wrapper{ text-align:center;padding-top:70px; }
+
+/* Vinyl */
+.vinyl{width:230px;height:230px;border-radius:50%;overflow:hidden;margin:auto;
+border:6px solid rgba(255,255,255,.1);box-shadow:0 0 35px rgba(255,80,180,.6);}
+.vinyl.spin{animation:spin 8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vinyl img{width:100%;height:100%;object-fit:cover;}
+
+/* Controls */
+.controls{margin-top:15px;display:flex;justify-content:center;gap:20px;}
+.ctrl{width:50px;height:50px;border:none;border-radius:14px;font-size:20px;
+background:rgba(255,255,255,.2);cursor:pointer;transition:.2s;}
+.ctrl:hover{background:#ff71d7;transform:scale(1.1);}
+
+/* Bars */
+.bars{display:flex;justify-content:center;margin-top:18px;gap:4px;}
+.bar{width:6px;background:#ff8bf5;border-radius:8px;animation:bar .6s infinite alternate;}
+@keyframes bar{from{height:8px}to{height:70px}}
+
+/* Mood buttons */
+.mood-buttons{display:flex;justify-content:center;gap:10px;margin-top:15px;}
+.mood-btn{padding:8px 18px;border:none;border-radius:20px;font-weight:600;
+cursor:pointer;background:#ffb7e7;color:#000;}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.sidebar button {
+  width: 55px;height:55px;border:none;border-radius:14px;cursor:pointer;
+  background:rgba(255,255,255,.15);
+  font-size:24px;backdrop-filter:blur(10px);transition:.2s;
+}
+.sidebar button:hover, .active-btn {
+  background:#ffb7e7 !important;color:#000 !important;transform:scale(1.1);
+}
+
+/* Logout button */
+.logout {
+  position: fixed;top:18px;right:18px;
+  background:#ff4f8b;border:none;padding:9px 15px;
+  border-radius:10px;color:#fff;font-size:14px;cursor:pointer;
+  font-weight:600;transition:0.2s;
+}
+.logout:hover { background:#ff2c6e;transform:scale(1.05); }
+
+</style>
+</head>
+
+<body>
+
+<!-- Logout -->
+<button class="logout" onclick="logout()">Logout</button>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <button onclick="location.href='home.html'">🏠</button>
+  <button class="active-btn">🎧</button>
+  <button onclick="location.href='games.html'">🎮</button>
+  <button onclick="location.href='profile.html'">👤</button>
+</div>
+
+<div class="music-wrapper">
+
+<div class="mood-buttons">
+  <button class="mood-btn" onclick="selectMood('happy')">😊 Happy</button>
+  <button class="mood-btn" onclick="selectMood('sad')">😢 Sad</button>
+  <button class="mood-btn" onclick="selectMood('chill')">😌 Chill</button>
+  <button class="mood-btn" onclick="selectMood('angry')">🔥 Angry</button>
+  <button class="mood-btn" onclick="selectMood('love')">💖 Love</button>
+</div>
+<br>
+<br>
+<div class="vinyl"><img id="coverImg" src="../assets/covers/default.jpeg"></div>
+<br>
+<h2 id="songTitle">—</h2>
+
+<div class="controls">
+  <button class="ctrl" onclick="prevTrack()">⏮</button>
+  <button class="ctrl" id="playBtn" onclick="togglePlay()">▶️</button>
+  <button class="ctrl" onclick="nextTrack()">⏭</button>
+</div>
+<br>
+<div class="bars" id="bars"></div>
+</div>
+
+<script type="module" src="../js/player.js"></script>
+
+<script>
+const bars=document.getElementById("bars");
+for(let i=0;i<25;i++){
+ let d=document.createElement("div");
+ d.className="bar";d.style.animationDelay=(Math.random()*.5)+"s";
+ bars.appendChild(d);
+}
+
+// Logout
+function logout(){
+  localStorage.clear();
+  window.location.href="login.html";
+}
+
+</script>
+</body>
+</html>

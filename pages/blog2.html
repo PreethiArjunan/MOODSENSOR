@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reset & Heal 🌿 — MoodSense Blog</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family:"Poppins",sans-serif;
+  background:#0e0d13;
+  color:white;
+}
+
+/* Banner */
+.banner {
+  width:100%;
+  height:270px;
+  background:url("../assets/blogs/blog2/inner.jpg") center/cover;
+  border-bottom:2px solid rgba(255,255,255,0.15);
+}
+
+/* Container */
+.blog-wrap {
+  max-width:780px;
+  margin:-50px auto 30px;
+  padding:20px;
+}
+
+/* Glass Card */
+.blog-card {
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.25);
+  backdrop-filter:blur(16px);
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(170,255,200,0.25);
+}
+
+/* Title */
+.blog-title {
+  font-family:"Dancing Script",cursive;
+  font-size:42px;
+  color:#a7fce1;
+  text-align:center;
+}
+
+/* Tag */
+.tag {
+  display:inline-block;
+  margin:8px 0;
+  padding:5px 14px;
+  background:#d1fff0;
+  color:#004d3b;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* Quote Box */
+.quote {
+  background:rgba(255,255,255,0.15);
+  border-left:5px solid #a7fce1;
+  padding:10px 15px;
+  margin:14px 0;
+  font-style:italic;
+  border-radius:10px;
+}
+
+/* Back Button */
+.back-btn{
+  display:inline-block;
+  padding:8px 16px;
+  background:#a7fce1;
+  color:#000;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+p { line-height:1.7; font-size:15px; margin-bottom:14px; }
+
+/* Floating sparkles */
+.spark{
+  position:fixed;
+  bottom:0;
+  animation:float 2s linear;
+  opacity:.8;
+}
+@keyframes float {
+  0% { transform:translateY(0); }
+  100% { transform:translateY(-90vh); opacity:0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner"></div>
+
+<div class="blog-wrap">
+  <div class="blog-card">
+
+    <a class="back-btn" href="home.html">⬅ Back</a>
+
+    <div class="blog-title">Reset & Heal 🌿</div>
+    <span class="tag">Self-care 🛁</span>
+
+    <p>Healing isn’t a race — it’s a quiet, gentle journey. Some days it looks like tears and rest. Some days it feels like peace and a warm cup of tea. ☕💚</p>
+
+    <div class="quote">"Little by little, your soul remembers how to bloom again."</div>
+
+    <p>Your heart has carried so much. You deserve softness, patience, and time to breathe. Little by little, you grow again.</p>
+    <p>Unplug from noise. Stretch your body. Drink water. Sit under the sky. Call someone who feels like home. Healing begins in small moments.</p>
+    <p>Forgive yourself for survival mode. You did your best with what you had. That itself is strength.</p>
+    <p>Life blooms again when you do. Trust your timing. You are becoming whole again. 🌱</p>
+
+  </div>
+</div>
+
+<script>
+// Floating sparkles ✨
+setInterval(()=> {
+  const x=document.createElement("div");
+  x.className="spark";
+  x.textContent="✨";
+  x.style.left=Math.random()*100+"vw";
+  document.body.appendChild(x);
+  setTimeout(()=>x.remove(),2000);
+},800);
+</script>
+
+</body>
+</html>

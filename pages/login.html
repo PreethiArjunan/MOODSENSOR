@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — MoodSense ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;font-family:Poppins,sans-serif;
+  background:#0d0b18;
+  background-image: radial-gradient(circle at top,#ffb7e7, transparent 60%),
+                    radial-gradient(circle at bottom,#b8a4ff,transparent 70%);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;height:100vh;
+}
+
+.card{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(20px);
+  padding:35px;width:360px;border-radius:20px;
+  border:1px solid rgba(255,255,255,0.2);
+  text-align:center;
+  box-shadow:0 0 30px rgba(255,104,229,0.4);
+}
+h2{font-size:26px;font-weight:600;margin-bottom:5px;}
+p{opacity:.8;margin-bottom:15px;}
+
+input{
+  width:100%;padding:12px;margin:7px 0;border:none;
+  border-radius:10px;background:rgba(255,255,255,0.18);
+  color:#fff;font-size:14px;outline:none;
+}
+input::placeholder{color:#ccc;}
+
+button{
+  margin-top:10px;width:100%;padding:12px;border:none;
+  border-radius:10px;background:linear-gradient(135deg,#ff9ae0,#c39bff);
+  color:#000;font-weight:600;font-size:15px;cursor:pointer;
+  transition:.25s;
+}
+button:hover{transform:scale(1.06);}
+
+a{color:#ffd5ff;text-decoration:none;font-weight:500;}
+a:hover{text-decoration:underline;}
+
+.sidebar{
+  position:fixed;left:15px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:18px;
+}
+.sidebar button{
+  width:55px;height:55px;border:none;border-radius:14px;
+  background:rgba(255,255,255,0.12);font-size:26px;cursor:pointer;
+  backdrop-filter:blur(10px);transition:.2s;
+}
+.sidebar button:hover{background:#ffb7e7;color:#000;transform:scale(1.1);}
+</style>
+
+<script>
+function login(){
+  const email = document.getElementById("email").value;
+  const pass = document.getElementById("pass").value;
+
+  const user = JSON.parse(localStorage.getItem("moodsenseUser"));
+
+  if(!user) return alert("No user found. Please sign up ✨");
+  if(email === user.email && pass === user.pass){
+    alert("Welcome back 💕");
+    window.location.href="home.html";
+  } else alert("Wrong login details ❌");
+}
+</script>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Hello Again 🌸</h2>
+  <p>Login to your safe emotional space 💐</p>
+
+  <input id="email" type="email" placeholder="Email Address">
+  <input id="pass" type="password" placeholder="Password">
+
+  <button onclick="login()">Login 💫</button>
+
+  <p style="margin-top:12px;font-size:14px;">New here? <a href="signup.html">Sign Up</a></p>
+</div>
+
+</body>
+</html>
