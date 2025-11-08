@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mindfulness Calm 🫶☁️✨ — MoodSense Blog</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body { margin:0; font-family:"Poppins",sans-serif; background:#0e0d13; color:white; scroll-behavior:smooth; }
+.banner { width:100%; height:270px; background:center/cover no-repeat; border-bottom:2px solid rgba(255,255,255,0.15); }
+.blog-wrap { max-width:780px; margin:-50px auto 30px; padding:20px; }
+.blog-card { background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); backdrop-filter:blur(16px); padding:25px; border-radius:20px; box-shadow:0 10px 30px rgba(200,180,255,0.25); }
+.blog-title { font-family:"Dancing Script",cursive; font-size:42px; text-align:center; margin-bottom:10px; color:#d4b3ff; }
+.tag { display:inline-block; margin:8px 0; padding:5px 14px; border-radius:12px; font-size:12px; font-weight:bold; background:#e7dfff; color:#3d0050; }
+.quote { background:rgba(255,255,255,0.15); border-left:5px solid #d4b3ff; padding:10px 15px; margin:14px 0; font-style:italic; border-radius:10px; }
+.back-btn{ display:inline-block; padding:8px 16px; background:#d4b3ff; color:#000; border-radius:12px; text-decoration:none; font-weight:600; margin-bottom:12px; }
+p { line-height:1.7; font-size:15px; margin-bottom:14px; }
+.spark{ position:fixed; bottom:0; animation:float 2s linear; opacity:.8; }
+@keyframes float { 0% { transform:translateY(0); } 100% { transform:translateY(-90vh); opacity:0; } }
+</style>
+</head>
+
+<body>
+
+<div class="banner" style="background-image:url('../assets/blogs/blog3/inner.jpg');"></div>
+
+<div class="blog-wrap">
+  <div class="blog-card">
+
+    <a class="back-btn" href="index.html">⬅ Back</a>
+
+    <div class="blog-title">Mindfulness Calm 🫶☁️✨</div>
+    <span class="tag">Mindfulness ☁️</span>
+
+    <p>Breathe. Be here. This moment is safe, soft and yours. 🌤️</p>
+
+    <div class="quote">"Even small, soft moments of presence are powerful magic."</div>
+
+    <p>Mindfulness isn’t about doing more — it's about feeling alive again. Sipping tea slowly. Watching sunlight move. Listening to silence. Smiling at tiny blessings.</p>
+    <p>Your life isn’t measured by speed but presence. Slow mornings. Deep breaths. Still afternoons. Evenings with calm music. That's magic. ✨</p>
+    <p>You don’t need a perfect day — just small soft moments that remind you you're alive and loved.</p>
+    <p>Be gentle. Be present. Let today be light. 🌷</p>
+
+  </div>
+</div>
+
+<script>
+setInterval(()=> {
+  const x=document.createElement("div");
+  x.className="spark";
+  x.textContent="✨";
+  x.style.left=Math.random()*100+"vw";
+  document.body.appendChild(x);
+  setTimeout(()=>x.remove(),2000);
+},800);
+</script>
+
+</body>
+</html>
