@@ -8,7 +8,17 @@
 </head>
 <body>
     <h1>Welcome to MoodSense</h1>
-    <p>This is your MoodSense app home page.</p>
+    <p>Select your mood:</p>
+
+    <div class="mood-buttons">
+        <button onclick="playMood('happy')">Happy</button>
+        <button onclick="playMood('sad')">Sad</button>
+        <button onclick="playMood('angry')">Angry</button>
+        <button onclick="playMood('chill')">Chill</button>
+        <button onclick="playMood('love')">Love</button>
+    </div>
+
+    <audio id="moodAudio" controls></audio>
 
     <script src="script.js"></script>
 </body>
