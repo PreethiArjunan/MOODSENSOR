@@ -1,25 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoodSense</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoodSense ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #010102;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Typewriter Greeting */
+.typewriter {
+  font-family: "Dancing Script", cursive;
+  font-size: 40px;
+  font-weight: 600;
+  color: #d68f3d;
+  text-align: center;
+  margin-top: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #d68f3d;
+  width: 0;
+  animation: typing 1s steps(40) forwards, blink .9s step-end infinite;
+}
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink { 50% { border-color: transparent } }
+
+.quote-box {
+  font-family: "Serif",bold,cursive;
+  text-align:center;
+  margin-top: 8px;
+  font-size: 20px;
+  opacity: .88;
+  color: #ab88d9;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sidebar button {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: .25s;
+}
+.sidebar button:hover {
+  background: #efaad8;
+  color: #000;
+  transform: scale(1.1);
+}
+.active { background:#ffb7e7 !important; color:#000 !important; }
+
+/* Logout special style */
+.sidebar button.logout {
+  background: rgba(255, 150, 200, 0.22);
+}
+.sidebar button.logout:hover {
+  background:#ff8ec9;
+  color:#000;
+}
+
+/* Feature Buttons */
+.features { margin-top: 45px; display: flex; justify-content: center; gap: 20px; }
+.feature-btn {
+  padding: 15px 20px; background: linear-gradient(145deg,#db7dbd,#d1c3d1);
+  border:none; border-radius:15px; font-size:19px; color:#000; font-weight:800;
+  cursor:pointer; transition:.25s;
+}
+.feature-btn:hover { transform: scale(1.08); }
+
+/* Blog Section */
+.blog-container { margin-top: 30px; text-align: center; }
+.blog-title { font-family:"Playfair Display",cursive ;font-size: 6px; margin-bottom: 30px; font-weight:600; }
+
+.blog-grid { display: flex; justify-content:center; gap: 20px; flex-wrap:wrap; padding:0 20px; }
+
+.blog-card {
+  background: rgba(127, 75, 114, 0.08);
+  backdrop-filter: blur(10px);
+  width: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  padding-bottom: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition:.25s; text-decoration:none; color:white;
+}
+.blog-card:hover { transform: translateY(-6px); box-shadow:0 6px 16px rgba(255,153,255,.25); }
+.blog-card img { width:100%; height:180px; object-fit:cover; }
+
+.blog-tag {
+  font-size: 13px; background:#82ffcd; padding:4px 11px; border-radius:12px;
+  display:inline-block; margin-top:8px; color:#001b12;
+}
+.blog-card p { font-size:15px; padding:8px; font-weight:500; }
+
+/* Mood quick buttons */
+.mood-buttons { margin-top: 25px; text-align:center; }
+.mood-btn {
+  background:linear-gradient(145deg,#db7dbd,#d1c3d1); border:none; padding:10px 16px; border-radius:11px;
+  margin:6px; font-size:16px; font-weight:700; cursor:pointer; color:#000;
+  transition:.2s;
+}
+.mood-btn:hover { background:#ff9fee; transform:scale(1.08); }
+
+/* Hearts floating */
+.heart {
+  position:fixed; bottom:-10px; font-size:18px; opacity:.7;
+  animation:float 6s linear infinite; pointer-events:none;
+}
+@keyframes float { 0%{transform:translateY(0);opacity:.8;} 100%{transform:translateY(-120vh);opacity:0;} }
+</style>
 </head>
+
 <body>
-    <h1>Welcome to MoodSense</h1>
-    <p>Select your mood:</p>
 
-    <div class="mood-buttons">
-        <button onclick="playMood('happy')">Happy</button>
-        <button onclick="playMood('sad')">Sad</button>
-        <button onclick="playMood('angry')">Angry</button>
-        <button onclick="playMood('chill')">Chill</button>
-        <button onclick="playMood('love')">Love</button>
-    </div>
+<div class="typewriter">Heyyy....</div>
+<div class="quote-box" id="dailyQuote"></div>
 
-    <audio id="moodAudio" controls></audio>
+<!-- Sidebar -->
+<div class="sidebar">
+  <button class="active" onclick="location.href='home.html'">🏠</button>
+  <button onclick="location.href='music.html'">🎧</button>
+  <button onclick="location.href='games.html'">🎮</button>
+  <button onclick="location.href='profile.html'">👤</button>
+  <button class="logout" onclick="logout()">🚪</button> <!-- logout -->
+</div>
 
-    <script src="script.js"></script>
+<!-- Features -->
+<div class="features">
+  <button class="feature-btn" onclick="location.href='music.html'">🎧 Music</button>
+  <button class="feature-btn" onclick="location.href='history.html'">📊 Mood History</button>
+  <button class="feature-btn" onclick="location.href='games.html'">🎮 Mini Games</button>
+</div>
+  <!-- Mood Buttons BELOW title -->
+  <div class="mood-buttons">
+    <button class="mood-btn" onclick="goMood('happy')">😊 Happy</button>
+    <button class="mood-btn" onclick="goMood('sad')">😢 Sad</button>
+    <button class="mood-btn" onclick="goMood('angry')">🔥 Angry</button>
+    <button class="mood-btn" onclick="goMood('chill')">🧊 Chill</button>
+    <button class="mood-btn" onclick="goMood('love')">💗 Love</button>
+  </div>
+<!-- Blog Section -->
+<div class="blog-container">
+  <div class="blog-title">From the Blog ✨</div>
+
+  <div class="blog-grid">
+    <a class="blog-card" href="blog1.html">
+      <img src="../assets/blogs/blog1/cover.jpg">
+      <span class="blog-tag">Positivity</span>
+      <p>How to be You 💖</p>
+    </a>
+
+    <a class="blog-card" href="blog2.html">
+      <img src="../assets/blogs/blog2/cover.jpg">
+      <span class="blog-tag">Self-Care</span>
+      <p>How to Feel Better & Reset 🌿</p>
+    </a>
+
+    <a class="blog-card" href="blog3.html">
+      <img src="../assets/blogs/blog3/cover.jpg">
+      <span class="blog-tag">Mindfulness</span>
+      <p>Small Moments, Big Calm ☁️✨</p>
+    </a>
+  </div>
+</div>
+
+<script>
+
+  // ✅ Get selected mood from Home page and apply to player
+let moodFromHome = localStorage.getItem("selectedMood");
+if (moodFromHome) {
+    localStorage.setItem("currentMood", moodFromHome);
+    localStorage.removeItem("selectedMood");
+}
+
+function goMood(mood){
+  console.log("Mood selected:", mood); // debug line
+  localStorage.setItem("selectedMood", mood);
+  window.location.href = "music.html";
+}
+
+// LOGOUT
+function logout(){
+  localStorage.removeItem("moodsenseUser");
+  alert("Logged out 💕 Come back soon 🌸");
+  window.location.href = "login.html";
+}
+
+// Floating Hearts
+setInterval(() => {
+  const h=document.createElement("div");
+  h.textContent=["🦋"][Math.floor(Math.random()*2)];
+  h.classList.add("heart");
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(18+Math.random()*18)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},800);
+
+// Daily Quote
+const quotes=[
+"You glow differently when you rest 💞",
+"Soft hearts shine brightest ✨",
+"Healing looks beautiful on you 🌸",
+"You are becoming your best self softly 🫶",
+"You deserve gentle days & soft hugs 💕"
+];
+document.getElementById("dailyQuote").innerText = quotes[Math.floor(Math.random()*quotes.length)];
+</script>
+
 </body>
 </html>
